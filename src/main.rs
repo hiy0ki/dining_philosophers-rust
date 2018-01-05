@@ -9,17 +9,25 @@ impl Philosopher {
             name: name.to_string(),
         }
     }
+
+    fn eat(&self) {
+       println!("{} is done eating", self.name);
+    }
 }
 
 fn main() {
-    // new 関数を用意しないと以下のように呼び出さないといけなくなる
-    // let p1 = Philosopher { name: "Judith Butler".to_string() };
-    let p1 = Philosopher::new("Judith Butler");
-    let p2 = Philosopher::new("Gilles Deleuze");
-    let p3 = Philosopher::new("Karl Marx");
-    let p4 = Philosopher::new("Emma Goldman");
-    let p5 = Philosopher::new("Michel FouCault");
+    let philosophers = vec![
+        // new 関数を用意しないと以下のように呼び出さないといけなくなる
+        // let p1 = Philosopher { name: "Judith Butler".to_string() };
+        Philosopher::new("Judith Butler"),
+        Philosopher::new("Gilles Deleuze"),
+        Philosopher::new("Karl Marx"),
+        Philosopher::new("Emma Goldman"),
+        Philosopher::new("Michel FouCault"),
+    ];
 
-    
+    for p in &philosophers {
+        p.eat();
+    }
 
 }
